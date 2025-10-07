@@ -1,6 +1,6 @@
 import numpy as np
 
-def winrate(df,window):
+def winrate(df,window,bw):
     if 'Close' in df.columns:
         if 'ren' not in df.columns:
             df['ren'] = np.log(df['Close'] / df['Close'].shift(1))
@@ -10,6 +10,6 @@ def winrate(df,window):
         return pos_ret.mean()
     df['winrate_ren'] = df['ren'].rolling(window=window).apply(winrate_window)
     df = df.dropna()
-    df['winrate_buy'] = df['winrate_ren']>0.60
-    df['winrate_sell'] = df['winrate_ren']<-0.4
+    df['winrate_buy'] = df['winrate_ren']>bw
+
     return df

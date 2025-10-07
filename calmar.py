@@ -1,6 +1,6 @@
 import numpy as np
 
-def calmar(df, window):
+def calmar(df, window,bc):
 
     if 'Close' in df.columns:
         if 'ren' not in df.columns:
@@ -38,6 +38,6 @@ def calmar(df, window):
 
     df['calmar'] = cr_values
     df = df.dropna()
-    df['calmar_buy'] = df['calmar']>5
-    df['calmar_sell'] = df['calmar']<0
+    df['calmar_buy'] = df['calmar']>bc
+
     return df
