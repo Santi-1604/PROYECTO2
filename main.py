@@ -6,7 +6,7 @@ from gridsearch import grid_search_backtest
 import matplotlib.pyplot as plt
 from regime_markets_conditions import run_adaptive_grid_windows
 def main():
-    ruta = 'C:\\Users\\52331\\Downloads\\Binance_BTCUSDT_1h.csv'
+    ruta = 'Binance_BTCUSDT_1h.csv'
     print('Alistando data frame')
     df = getdata(ruta)
     print(df.tail())
